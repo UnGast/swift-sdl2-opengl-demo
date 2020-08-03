@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SDL",
+        "repositoryURL": "https://github.com/PureSwift/SDL",
+        "state": {
+          "branch": "master",
+          "revision": "980f6563ff37686b6b60cd3e651e64cc092c4038",
+          "version": null
+        }
+      },
+      {
+        "package": "GL",
+        "repositoryURL": "https://github.com/kelvin13/swift-opengl.git",
+        "state": {
+          "branch": "master",
+          "revision": "aa8ed1bee08b87c5e200f7b42d12e491542b45dd",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
