@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "SDL",
-        "repositoryURL": "https://github.com/PureSwift/SDL",
+        "repositoryURL": "https://github.com/UnGast/SDL.git",
         "state": {
           "branch": "master",
-          "revision": "980f6563ff37686b6b60cd3e651e64cc092c4038",
+          "revision": "1a8d51188e4204609915151bd34316ec3cab198b",
           "version": null
         }
       },
