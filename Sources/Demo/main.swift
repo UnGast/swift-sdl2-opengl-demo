@@ -1,5 +1,4 @@
 import Foundation
-import SDL
 import CSDL2
 import GL
 
@@ -29,8 +28,8 @@ let vertices: [GL.Float] = [
     -1.0, -1.0, 0.1
 ]
 
-func main() throws {
-    try SDLSystem.initialize(subSystems: [.video])
+func main() {
+    SDL_Init(SDL_INIT_VIDEO)
 
     let window = SDL_CreateWindow(
         "Swift SDL2 OpenGL Demo", // title
@@ -128,9 +127,6 @@ func main() throws {
 
 do {
     try main()
-} catch let error as SDLError {
-    print("SDL Error: \(error.debugDescription)")
-    exit(EXIT_FAILURE)
 } catch {
     print("Error: \(error)")
     exit(EXIT_FAILURE)

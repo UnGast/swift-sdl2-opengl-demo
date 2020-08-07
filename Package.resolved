@@ -2,11 +2,11 @@
   "object": {
     "pins": [
       {
-        "package": "SDL",
-        "repositoryURL": "https://github.com/UnGast/SDL.git",
+        "package": "CSDL2",
+        "repositoryURL": "https://github.com/UnGast/CSDL2",
         "state": {
           "branch": "master",
-          "revision": "1a8d51188e4204609915151bd34316ec3cab198b",
+          "revision": "4721763511cd8b8aee0612790df579cf5b163148",
           "version": null
         }
       },
