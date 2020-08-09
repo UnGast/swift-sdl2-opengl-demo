@@ -4,33 +4,29 @@ import GL
 
 var vertexShaderSource = """
 #version 330 core
-
 layout (location = 0) in vec3 inPos;
-
 void main() {
-    gl_Position = vec4(inPos, 1.0);
+    gl_Position = vec4(inPos, 1);
 }
 """
 
 let fragmentShaderSource = """
 #version 330 core
-
-layout (location = 0) out vec4 outColor;
-
+out vec4 FragColor;
 void main() {
-    outColor = vec4(0.5, 1.0, 0.5, 1.0);
+    FragColor = vec4(0.5, 1.0, 0.5, 1.0);
 }
 """
 
 let vertices: [GL.Float] = [
-    0, 1.0, 0.1,
-    1.0, -1.0, 0.1,
-    -1.0, -1.0, 0.1
+    0, 1.0, 0,
+    1.0, -1.0, 0,
+    -1.0, -1.0, 0
 ]
 
 func main() {
     SDL_Init(SDL_INIT_VIDEO)
-
+    
     let window = SDL_CreateWindow(
         "Swift SDL2 OpenGL Demo", // title
         Int32(SDL_WINDOWPOS_CENTERED_MASK), // x
@@ -38,7 +34,7 @@ func main() {
         800, // width
         600, // height
         UInt32(SDL_WINDOW_RESIZABLE.rawValue | SDL_WINDOW_OPENGL.rawValue)) // flags
-
+    
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3)
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3)
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, Int32(SDL_GL_CONTEXT_PROFILE_CORE.rawValue))
@@ -95,31 +91,35 @@ func main() {
 
     glUseProgram(shaderProgram)
 
+
     var running = true
 
     var event = SDL_Event()
 
     while running {
+
         SDL_PollEvent(&event)
+
         let eventType = SDL_EventType(rawValue: event.type)
 
         switch eventType {
+
         case SDL_QUIT, SDL_APP_TERMINATING:
             running = false
+
         default:
             break
         }
-
+        
         glClearColor(0.2, 0.3, 1.0, 1.0)
         glClear(GL.DEPTH_BUFFER_BIT | GL.COLOR_BUFFER_BIT | GL.STENCIL_BUFFER_BIT)
         glBindVertexArray(VAO)
         glUseProgram(shaderProgram)
         glDrawArrays(GL.TRIANGLES, 0, 3)
-
         SDL_GL_SwapWindow(window)
     }
 
-    SDL_GL_DeleteContext(glContext)
+    // cleanup before exit
     SDL_DestroyWindow(window)
     SDL_VideoQuit()
     SDL_Quit()

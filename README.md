@@ -1,3 +1,3 @@
-# swift-sdl2-opengl
+# Example of an OpenGL application written in Swift using SDL2
 
-A description of this package.
+This is the code for the tutorial at [engineeringbydoing.com/article/swift-opengl-application](https://engineeringbydoing.com/article/swift-opengl-application).
